@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MARSHSQL2_MTS">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=MARSHSQL2;Initial Catalog=MarshForms</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>06152690-1264-42dc-9688-305d2c92b30c</DataSourceID>
+</RptDataSource>

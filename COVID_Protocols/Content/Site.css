@@ -1,0 +1,208 @@
+﻿
+@font-face {
+    font-family: 'AveriaLibre-Bold';
+    src: url('../MarshFonts/AveriaLibre-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-Bold';
+    src: url('../MarshFonts/AveriaSerifLibre-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-Regular';
+    src: url('../MarshFonts/AveriaSerifLibre-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MinionPro-Regular';
+    src: url('../MarshFonts/MinionPro-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../MarshFonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Italic';
+    src: url('../MarshFonts/Montserrat-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('../MarshFonts/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../MarshFonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+
+
+* {
+    font-family: Montserrat-Regular;
+}
+/*.marsh-header {
+}
+
+
+.marshgreen {
+    background-color: #3F4727;
+    color: #f0e8d3;
+}*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: AveriaSerifLibre-Bold;
+    letter-spacing: 2px;
+}
+
+
+
+/*body {
+    background-color: #f0e8d3;
+}*/
+
+.wood-bg {
+    background-color: #dbc99d; /*#CCC4A7;*/
+    background-image: url('../Images/wheel.svg');
+ 
+}
+
+
+.marsh-jumbo {
+    background-color: #3F4727;
+    color: #E1D1A6; /* #f0e8d3;*/
+}
+
+.marsh-nav {
+    background-color: #373A37;
+    /*color: #E1D1A6;  #f0e8d3;*/
+}
+
+.marsh-menu-button {
+    font-family: AveriaSerifLibre-Bold;
+    /*color: #E1D1A6;*/
+    /*#f0e8d3;*/
+    /*font-size: x-large;*/
+}
+
+    .marsh-menu-button:hover {
+        /*color: #E1D1A6;*/
+        text-decoration: underline;
+    }
+
+
+.rosebud {
+    color: #876479;
+}
+    .rosebud:hover {
+        color: #876479;
+        text-decoration:underline;
+    }
+
+
+body, html, form {
+    height: 100%;
+}
+
+
+
+
+
+/*FORM LABEL FUN*/
+
+
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+    .form-label-group > input,
+    .form-label-group > label {
+        height: 3.125rem;
+        padding: .75rem;
+    }
+
+    .form-label-group > label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 0; /* Override default `<label>` margin */
+        line-height: 1.5;
+        color: #495057;
+        pointer-events: none;
+        cursor: text; /* Match the input under the label */
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        transition: all .1s ease-in-out;
+    }
+
+    .form-label-group input::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::-ms-input-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::-moz-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input:not(:placeholder-shown) {
+        padding-top: 1.25rem;
+        padding-bottom: .25rem;
+    }
+
+        .form-label-group input:not(:placeholder-shown) ~ label {
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+            font-size: 12px;
+            color: #777;
+        }
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+    .form-label-group > label {
+        display: none;
+    }
+
+    .form-label-group input::-ms-input-placeholder {
+        color: #777;
+    }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .form-label-group > label {
+        display: none;
+    }
+
+    .form-label-group input:-ms-input-placeholder {
+        color: #777;
+    }
+}
+
+
+
+
+
+
+
+
+ 
