@@ -170,6 +170,37 @@ namespace COVID_Protocols
             return employee_id;
         }
 
+
+        public static String GetLastTemp(string badge_id)
+        {
+
+
+            String calculated_object_temperature_f = "";
+            String SQLString = "SELECT TOP 1 badge_id, date_time_stamp, calculated_object_temperature_f FROM MarshForms.dbo.mts_temperatures WHERE CAST(date_time_stamp AS DATE) = CAST(GETDATE() AS DATE) AND badge_id = @badge_id ORDER BY date_time_stamp DESC";
+            System.Configuration.Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+            using (SqlConnection connection = new SqlConnection(config.ConnectionStrings.ConnectionStrings["MarshFormsConnectionString"].ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(SQLString, connection))
+                {
+                    cmd.Parameters.AddWithValue("@badge_id", badge_id);
+
+                    using (SqlDataReader SQLReader = cmd.ExecuteReader())
+                    {
+                        if (SQLReader != null)
+                        {
+                            while (SQLReader.Read())
+                            {
+                                calculated_object_temperature_f = SQLReader["calculated_object_temperature_f"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            return calculated_object_temperature_f;
+        }
+
+
         public static int GetEmployeeIDFromGuid(String guid)
         {
             int employee_id = 0;

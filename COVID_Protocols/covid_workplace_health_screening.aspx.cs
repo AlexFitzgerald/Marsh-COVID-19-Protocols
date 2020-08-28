@@ -41,6 +41,9 @@ namespace COVID_Protocols
                             // bmpCardImage.EndInit();
                             //// image.Source = bmpCardImage;
                             // BadgeImage.ImageUrl =   MarshFormsFunctions.GetEmployeeBadgeImage(Session["badge_id"].ToString());
+
+                            TemperatureTextBox.Text = MarshFormsFunctions.GetLastTemp(Session["badge_id"].ToString());
+
                         }
 
                         if (Session["employee_name"] != null)
