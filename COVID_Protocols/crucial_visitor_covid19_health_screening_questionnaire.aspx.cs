@@ -162,8 +162,14 @@ namespace COVID_Protocols
                             smtp_client.Send(mm);
                         }
                     }
-
-                    Response.Redirect("~\\FormSubmitted.aspx");
+                    if (denied == "True")
+                    {
+                        Response.Redirect("~\\crucial_visitor_symptomatic.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~\\FormSubmitted.aspx");
+                    }
                 }
                 catch (Exception ex)
                 {

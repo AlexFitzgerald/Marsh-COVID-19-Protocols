@@ -136,7 +136,14 @@ namespace COVID_Protocols
                             smtp_client.Send(mm);
                         }
                     }
-                    Response.Redirect("~\\FormSubmitted.aspx");
+                    if (under_quarantine_yes == "True" || case_resolved_no == "True" || covid_symptoms_yes == "True")
+                    {
+                        Response.Redirect("~\\home_entry_symptomatic.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~\\FormSubmitted.aspx");
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -52,8 +52,8 @@
     <DataSource Include="MARSHSQL2_MTS.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Admin Temperature Scans.rdl" />
     <Report Include="Employee Badge Scan Exceptions.rdl" />
-    <Report Include="MTS Usage Summary.rdl" />
     <Report Include="Temperature Scan Exceptions.rdl" />
     <Report Include="Temperature Scan Log.rdl" />
     <Report Include="Temperature Scans by Supervisor.rdl" />

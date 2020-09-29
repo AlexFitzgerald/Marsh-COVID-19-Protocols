@@ -124,5 +124,22 @@ namespace COVID_Protocols.Maintenance
                 MessageLabel.Text = "An Error Occurred.";
             }
         }
+
+        protected void EmailSurveyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox EmailSurveyCheckBox = (CheckBox)sender;
+            String checked_status = EmailSurveyCheckBox.Checked.ToString();
+            ListViewDataItem lvdi = (ListViewDataItem)EmailSurveyCheckBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.EmailSurveyChanged(id, checked_status))
+            {
+                MessageLabel.Text = "Saved " + checked_status.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
     }
 }

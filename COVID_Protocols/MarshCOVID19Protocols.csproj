@@ -123,6 +123,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="covid_workplace_health_screening.aspx" />
     <Content Include="crucial_visitor_covid19_health_screening_questionnaire.aspx" />
+    <Content Include="crucial_visitor_symptomatic.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -130,6 +131,7 @@
     <Content Include="FormSubmittedTrue.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home_entry_authorization_occupied_homes.aspx" />
+    <Content Include="home_entry_symptomatic.aspx" />
     <Content Include="Images\back_of_badge.PNG" />
     <Content Include="Images\marsh_logo_green.svg" />
     <Content Include="Images\marsh_logo_tan.png" />
@@ -307,6 +309,20 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="crucial_visitor_symptomatic.aspx.cs">
+      <DependentUpon>crucial_visitor_symptomatic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crucial_visitor_symptomatic.aspx.designer.cs">
+      <DependentUpon>crucial_visitor_symptomatic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home_entry_symptomatic.aspx.cs">
+      <DependentUpon>home_entry_symptomatic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home_entry_symptomatic.aspx.designer.cs">
+      <DependentUpon>home_entry_symptomatic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\AddEmployees.aspx.cs">
       <DependentUpon>AddEmployees.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

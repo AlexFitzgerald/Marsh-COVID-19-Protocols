@@ -120,6 +120,28 @@ namespace COVID_Protocols.Maintenance
             }
         }
 
+        public static bool EmailSurveyChanged(String id, String daily_survey_email)
+        {
+            String SQLString = "UPDATE dbo.employees SET daily_survey_email = @daily_survey_email WHERE id = @id";
+            try
+            {
+                System.Configuration.Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+                using (SqlConnection connection = new SqlConnection(config.ConnectionStrings.ConnectionStrings["MarshFormsConnectionString"].ConnectionString))
+                {
+                    SqlCommand command = new SqlCommand(SQLString, connection);
+                    command.Parameters.AddWithValue("@id", String.IsNullOrEmpty(id) ? (object)DBNull.Value : id);
+                    command.Parameters.AddWithValue("@daily_survey_email", String.IsNullOrEmpty(daily_survey_email) ? (object)DBNull.Value : daily_survey_email);
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
 
         public static bool LanguageChanged(String id, String default_language)
         {
@@ -145,7 +167,7 @@ namespace COVID_Protocols.Maintenance
 
         public static bool AddEmployee(String payroll_id, String card_number)
         {
-            String SQLString = " INSERT INTO dbo.employees(card_number, payroll_id, first_name, middle_name, last_name, nick_name, default_language, monitor_start_date, monitor_end_date, audit, active, phone_number) SELECT @card_number AS card_number, pe.id AS payroll_id, pe.firstName AS first_name, pe.middleName AS middle_name, pe.lastName AS last_name, pe.nickname AS nick_name, 1, NULL, NULL, 'Created ' + CAST(GETDATE() AS VARCHAR(20)) + '| ', 1, NULL FROM view_payroll_employees pe LEFT JOIN employees e ON pe.id = e.payroll_id WHERE e.id IS NULL AND pe.id = @payroll_id";
+            String SQLString = " INSERT INTO dbo.employees(card_number, payroll_id, first_name, middle_name, last_name, nick_name, default_language, monitor_start_date, monitor_end_date, audit, active, phone_number,daily_survey_email) SELECT @card_number AS card_number, pe.id AS payroll_id, pe.firstName AS first_name, pe.middleName AS middle_name, pe.lastName AS last_name, pe.nickname AS nick_name, 1, NULL, NULL, 'Created ' + CAST(GETDATE() AS VARCHAR(20)) + '| ', 1, NULL, 0 FROM view_payroll_employees pe LEFT JOIN employees e ON pe.id = e.payroll_id WHERE e.id IS NULL AND pe.id = @payroll_id";
             try
             {
                 System.Configuration.Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");

@@ -70,6 +70,13 @@
                                         </div>
                                         <div class="d-flex flex-wrap">
                                             <div class="m-3">
+                                                Email Survey Each Morning<br />
+                                                      <asp:CheckBox ID="EmailSurveyCheckBox" AutoPostBack="true" OnCheckedChanged="EmailSurveyCheckBox_CheckedChanged" Checked='<%# Eval("daily_survey_email") %>' runat="server" />
+                                            
+                                          </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap">
+                                            <div class="m-3">
                                                 Email
                                         <asp:TextBox ID="EmailTextBox" AutoPostBack="true" OnTextChanged="EmailTextBox_TextChanged" CssClass="form-control form-control-sm" Text='<%# Eval("email") %>' runat="server" />
                                             </div>
