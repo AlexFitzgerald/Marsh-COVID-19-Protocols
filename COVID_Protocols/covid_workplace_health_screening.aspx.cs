@@ -101,11 +101,12 @@ namespace COVID_Protocols
                 NoBlanks = false;
                 BadgeTextBox.Focus();
             }
-            else if (temperature == "")
-            {
-                NoBlanks = false;
-                TemperatureTextBox.Focus();
-            }
+            //REMOVED 10/5/2020 
+            /*else if (temperature == "")
+             {
+                 NoBlanks = false;
+                 TemperatureTextBox.Focus();
+             }*/
             else
             {
 
@@ -193,18 +194,26 @@ namespace COVID_Protocols
                             }
                         }
 
+                        //IF THERE TEMP IS HIGH THEN GRAB A PHONE # AND GO TO YOUR CAR
+
+                        if (temperature != "")
+                        {
+                            if (double.Parse(temperature, System.Globalization.CultureInfo.InvariantCulture) >= 100.4)
+                            {
+                                HttpContext.Current.Session["guid"] = g;
+                                Response.Redirect("~\\FormSubmittedTrue.aspx");
+                            }
+                        }
+
+
                         //IF THEY ARE IN THE PROGRAM THEN BUSINESS AS USUAL
                         if (MarshFormsFunctions.get_monitor(employee_badge_id))
                         {
                             //MarshFormsFunctions.sendEmail(g, employee_name, "", true, payroll_id.ToString());
                             Response.Redirect("~\\FormSubmitted.aspx");
                         }
-                        //IF THERE TEMP IS HIGH THEN GRAB A PHONE # AND GO TO YOUR CAR
-                        else if (double.Parse(temperature, System.Globalization.CultureInfo.InvariantCulture) >= 100.4)
-                        {
-                            HttpContext.Current.Session["guid"] = g;
-                            Response.Redirect("~\\FormSubmittedTrue.aspx");
-                        }
+
+
                         //ANY AMOUNT OF YES -- GO TO CAR
                         //else if (answeredTrue)
                         //{
