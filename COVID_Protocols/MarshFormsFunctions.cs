@@ -455,7 +455,7 @@ namespace COVID_Protocols
         public static bool get_monitor(String card_number)
         {
             String monitor = "0";
-            String SQLString = " SELECT CASE WHEN GETDATE() BETWEEN monitor_start_date AND monitor_end_date THEN 1 ELSE 0 END AS monitor FROM MarshForms.dbo.employees WHERE card_number = @card_number";
+            String SQLString = " SELECT CASE WHEN CAST(GETDATE() AS DATE) BETWEEN monitor_start_date AND monitor_end_date THEN 1 ELSE 0 END AS monitor FROM MarshForms.dbo.employees WHERE card_number = @card_number";
             System.Configuration.Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
             using (SqlConnection connection = new SqlConnection(config.ConnectionStrings.ConnectionStrings["MarshFormsConnectionString"].ConnectionString))
             {
