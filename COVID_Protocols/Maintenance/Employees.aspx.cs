@@ -141,5 +141,176 @@ namespace COVID_Protocols.Maintenance
                 MessageLabel.Text = "An Error Occurred.";
             }
         }
+
+        protected void covid_positiveCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox covid_positiveCheckBox = (CheckBox)sender;
+            String checked_status = covid_positiveCheckBox.Checked.ToString();
+            ListViewDataItem lvdi = (ListViewDataItem)covid_positiveCheckBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidPositive(id, checked_status))
+            {
+                MessageLabel.Text = "Saved " + checked_status.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_close_contactCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox covid_close_contactCheckBox = (CheckBox)sender;
+            String checked_status = covid_close_contactCheckBox.Checked.ToString();
+            ListViewDataItem lvdi = (ListViewDataItem)covid_close_contactCheckBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidCloseContact(id, checked_status))
+            {
+                MessageLabel.Text = "Saved " + checked_status.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_watch_listCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox covid_watch_listCheckBox = (CheckBox)sender;
+            String checked_status = covid_watch_listCheckBox.Checked.ToString();
+            ListViewDataItem lvdi = (ListViewDataItem)covid_watch_listCheckBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidWatchList(id, checked_status))
+            {
+                MessageLabel.Text = "Saved " + checked_status.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_test_dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox covid_test_dateTextBox = (TextBox)sender;
+            String covid_test_date = covid_test_dateTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)covid_test_dateTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidTestDateChanged(id, covid_test_date))
+            {
+                MessageLabel.Text = "Saved " + covid_test_date.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_resulted_dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox covid_resulted_dateTextBox = (TextBox)sender;
+            String covid_resulted_date = covid_resulted_dateTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)covid_resulted_dateTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidResultedDate(id, covid_resulted_date))
+            {
+                MessageLabel.Text = "Saved " + covid_resulted_date.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_contact_result_dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox covid_contact_result_dateTextBox = (TextBox)sender;
+            String covid_contact_result_date = covid_contact_result_dateTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)covid_contact_result_dateTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidContactResultDate(id, covid_contact_result_date))
+            {
+                MessageLabel.Text = "Saved " + covid_contact_result_date.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void CovidSymptomsDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList CovidSymptomsDropDownList = (DropDownList)sender;
+            String CovidSymptoms = CovidSymptomsDropDownList.SelectedValue.ToString();
+            ListViewDataItem lvdi = (ListViewDataItem)CovidSymptomsDropDownList.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidSymptoms(id, CovidSymptoms))
+            {
+                MessageLabel.Text = "Saved " + CovidSymptoms.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void covid_estimate_return_dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox covid_estimate_return_dateTextBox = (TextBox)sender;
+            String covid_estimate_return_date = covid_estimate_return_dateTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)covid_estimate_return_dateTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidEstimateReturnDate(id, covid_estimate_return_date))
+            {
+                MessageLabel.Text = "Saved " + covid_estimate_return_date.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+
+        }
+
+        protected void covid_actual_return_dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox covid_actual_return_dateTextBox = (TextBox)sender;
+            String covid_actual_return_date = covid_actual_return_dateTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)covid_actual_return_dateTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.CovidActualReturnDate(id, covid_actual_return_date))
+            {
+                MessageLabel.Text = "Saved " + covid_actual_return_date.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
+
+        protected void NotesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox NotesTextBox = (TextBox)sender;
+            String covid_notes = NotesTextBox.Text;
+            ListViewDataItem lvdi = (ListViewDataItem)NotesTextBox.NamingContainer;
+            ListView lv = (ListView)lvdi.NamingContainer;
+            String id = lv.DataKeys[lvdi.DataItemIndex].Values["id"].ToString();
+            if (EmployeeFunctions.covid_notes(id, covid_notes))
+            {
+                MessageLabel.Text = "Saved " + covid_notes.ToString() + " on " + DateTime.Now.ToString();
+            }
+            else
+            {
+                MessageLabel.Text = "An Error Occurred.";
+            }
+        }
     }
 }
